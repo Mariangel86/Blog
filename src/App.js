@@ -1,33 +1,40 @@
 import React from 'react';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PaginaInicio from './componentes/PaginaInicio';
 import Blog from './componentes/Blog';
 import Acerca from './componentes/Acercade';
+import Header from './componentes/Header';
+import styled from 'styled-components';
 
 const App = () => {
   return (
     <BrowserRouter>
-        <div>
-          <header>
-            <h1>Bienvenido a mi Blog</h1>
-            <nav>
-            <NavLink to="/"> Inicio</NavLink>
-            <NavLink to="/Blog"> Blog</NavLink>
-            <NavLink to="/Acerca-de"> Acerca de</NavLink>
-            </nav>
-          </header>
-
-          <main>
+        <ContenedorPrincipal>
+          <Header/>
+          <Main>
             <Routes>
             <Route path='/' element={<PaginaInicio/>}/>
             <Route path='/Blog' element={<Blog/>}/>
             <Route path='/Acerca' element={<Acerca/>}/>
             </Routes>
-          </main>
-        </div>
+          </Main>
+        </ContenedorPrincipal>
     </BrowserRouter>
   );
   
 }
+
+const ContenedorPrincipal = styled.div`
+  padding: 40px;
+  width:90%;
+  max-width: 700px;
+`;
+
+const Main = styled.main`
+  background: #fff;
+  padding:40px;
+  border-radius:10px;
+  box-shadow: 0px 0px 5px rgba (129, 129, 129 0.1);
+`;
 
 export default App;
