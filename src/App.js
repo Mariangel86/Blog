@@ -6,6 +6,8 @@ import Acerca from './componentes/Acercade';
 import Header from './componentes/Header';
 import styled from 'styled-components';
 import Post from './componentes/Posts';
+import Error404 from './componentes/Error404';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -13,6 +15,7 @@ const App = () => {
           <Header/>
           <Main>
             <Routes>
+            <Route path="*" element={<Error404/>}/>
             <Route path="/" element={<PaginaInicio/>}/>
             <Route path="/Blog" element={<Blog/>}/>
             <Route path="/post/:id" element={<Post/>}/>
